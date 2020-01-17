@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+</head>
+<body>
+
+<button id="btnFetch" role="button">Fetch</button>
+<pre id="response"></pre>
+
+<script>
+    var txtResponse = document.getElementById("response");
+    document.getElementById("btnFetch").addEventListener('click', function (e) {
+        fetch('/stats')
+            .then(
+                function(response) {
+                    if (response.status !== 200) {
+                        txtResponse.innerHTML = "Error. See console logs.";
+                        console.error(response);
+                        return;
+                    }
+
+                    // Examine the text in the response
+                    response.json().then(function(data) {
+                        console.log(JSON.stringify(data, null, 2));
+                        txtResponse.innerHTML = JSON.stringify(data, null, 2);
+                    });
+                }
+            )
+            .catch(function(err) {
+                console.log('Fetch Error :-S', err);
+            });
+    });
+</script>
+</body>
+</html>
