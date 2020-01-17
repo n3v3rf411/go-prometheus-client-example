@@ -31,6 +31,8 @@ docker-compose up -d
 
 ## Rancher Cluster Monitoring 
 
+A step-by-step guide can be found at https://hellowillie.com/2020/01/17/sample-go-web-app-for-querying-rancher-cluster-monitoring-prometheus/
+
 To query the Prometheus instance deployed with Rancher's cluster monitoring:
 
 - Deploy monitoring on a cluster
